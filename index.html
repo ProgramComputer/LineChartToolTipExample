@@ -111,7 +111,7 @@ var baseValue = +data[0].close;
             d.date = parseDate(d.date);
             d.likes = d.likes/baseValue;
             baseValue = d.likes * baseValue;
-
+  });
         data.sort(function(a, b) {
             return a.date - b.date;
         });
