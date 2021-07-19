@@ -105,10 +105,15 @@
 
     d3.tsv("data.tsv", function(error, data) {
         if (error) throw error;
-
+var baseValue = +data[0].close;
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+    d.ratio = d.close / baseValue;
+        var baseValue = +data[0].likes.
         data.forEach(function(d) {
             d.date = parseDate(d.date);
-            d.likes = +d.likes;
+            d.likes = d.likes/baseValue;
+            baseValue = d.likes * baseValue;
         });
 
         data.sort(function(a, b) {
