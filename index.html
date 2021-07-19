@@ -106,7 +106,7 @@ var formatPercent = d3.format("+.0%"),
 
     d3.tsv("data.tsv", function(error, data) {
         if (error) throw error;
-var baseValue = +data[0].close;
+var baseValue = +data[0].likes;
   data.forEach(function(d) {
             d.date = parseDate(d.date);
             d.likes = d.likes/baseValue;
