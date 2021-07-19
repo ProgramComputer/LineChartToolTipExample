@@ -107,11 +107,10 @@ var formatPercent = d3.format("+.0%"),
     d3.tsv("data.tsv", function(error, data) {
         if (error) throw error;
 
-  data.forEach(function(d) {
+       data.forEach(function(d) {
             d.date = parseDate(d.date);
             d.likes = +d.likes;
-            
-  });
+            });
         data.sort(function(a, b) {
             return a.date - b.date;
         });
