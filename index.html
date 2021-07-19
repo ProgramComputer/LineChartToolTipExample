@@ -72,7 +72,8 @@
         bisectDate = d3.bisector(function(d) { return d.date; }).left,
         formatValue = d3.format(","),
         dateFormatter = d3.time.format("%m/%d/%y");
-
+var formatPercent = d3.format("+.0%"),
+    formatChange = function(x) { return formatPercent(x - 1); },
     var x = d3.time.scale()
             .range([0, width]);
 
@@ -107,13 +108,11 @@
         if (error) throw error;
 var baseValue = +data[0].close;
   data.forEach(function(d) {
-    d.date = parseDate(d.date);
-    d.ratio = d.close / baseValue;
-        var baseValue = +data[0].likes.
-        data.forEach(function(d) {
             d.date = parseDate(d.date);
             d.likes = d.likes/baseValue;
             baseValue = d.likes * baseValue;
+            
+            
         });
 
         data.sort(function(a, b) {
